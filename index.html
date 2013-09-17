@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="base64.js"></script>
+<script src="Cookie.js"></script>
+
+<!-- Document script -->
+<script>
+
+$(document).ready( function()
+{
+	// Hide the export string
+	$("#ExportStringParagraph").hide();
+
+	// Export button click event
+	$("#ExportButton").click( function()
+	{
+		// Get the export string
+		var ExportString = ExportCookies($("#CookieCount").val());
+
+		// Set the export paragraph
+		$("#ExportStringParagraph").show();
+		$("#ExportStringParagraph").text(ExportString);
+	});
+	
+});
+
+</script>
+
+</head>
+
+
+<!-- Body -->
+<body>
+	<h1>Cookie Clicker Exporter</h1>
+	<table>
+		<tr>
+			<td>Cookies:</td>
+			<td><input id="CookieCount" type="number" value=0></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input id="ExportButton" type="button" value="Export"></td>
+		</tr>
+	</table>
+	<br>
+	<p id="ExportStringParagraph">Exporter string</p>
+</body>
+</html>
